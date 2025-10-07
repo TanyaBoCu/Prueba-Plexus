@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Waveless</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <link href="css/style.css" type="text/css" rel="stylesheet" madia="">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="site-header" role="banner">
+        <div class="header-inner">
+            <a class="brand" href="/" aria-label="Waveless, inicio">
+                <img src="img/logo.png" alt="logo Waveless">
+            </a>
+
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+
+            <nav id="site-menu" class="primary-nav" aria-label="Principal">
+                <ul>
+                    <li><a href="#" aria-current="page"><span class="nav-icon adventure" aria-hidden="true"></span> Aventura</a></li>
+                    <li><a href="#"><span class="nav-icon destinations" aria-hidden="true"></span> Destinos</a></li>
+                    <li><a href="#"><span class="nav-icon accommodation" aria-hidden="true"></span> Alojamiento</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+
+            <a class="btn-reserva" href="#reserva" role="button">Reserva</a>
+        </div>
+    </header>
+
+
+
+    <main id="main" tabindex="-1">
+        <section id="hero-carousel" class="hero-carousel" aria-roledescription="carousel" aria-label="Promoción destacada">
+            <div class="slides" aria-live="off">
+                <img src="img/img-carousel.jpg" alt="Imagen de mapa de xarretera" aria-hidden="true" class="slide is-active" decoding="async" fetchpriority="high">
+                <img src="img/img-carousel2.jpg" alt="Imagen de carretera" aria-hidden="true" class="slide" loading="lazy" decoding="async">
+                <img src="img/img-carousel3.jpg" alt="Imagen de carretera" aria-hidden="true" class="slide" loading="lazy" decoding="async">
+            </div>
+
+            <div class="overlay">
+                <div class="titles-cont">
+                    <h1 class="title1">Ruta por Australia</h1>
+                    <p class="subtitle">Si te va la aventura, no te lo puedes perder</p>
+                </div>
+
+                <a href="#mas-info" class="more-info">Más información</a>
+            </div>
+
+            <button class="nav prev" type="button" aria-label="Anterior"><i class="arrow-icon" aria-hidden="true"></i></button>
+            <button class="nav next" type="button" aria-label="Siguiente"><i class="arrow-icon" aria-hidden="true"></i></button>
+
+            <div class="dots" role="tablist" aria-label="Diapositivas"></div>
+        </section>
+
+        <section id="destinations-cards" class="select-cards">
+            <div class="titles-sections">
+                <h2>Vive tus propias aventuras</h2>
+                <h3>Para los que les gusta explorar y conocer mundo sin complejos</h3>
+            </div>
+
+            <div class="filters-destinations">
+                <div class="menu-filters" id="filters-drawer">
+                    <button class="filters-close" type="button" aria-label="Cerrar filtros">×</button>
+
+                    <form class="filters-form" id="filters" novalidate>
+                        <h4 class="filters-title">Filtrar mi búsqueda</h4>
+
+                        <!-- Destinos -->
+                        <details class="filter-group filter-dest">
+                            <summary class="filter-summary">
+                                <i class="icon" aria-hidden="true"></i>
+                                <span>Destinos</span>
+                            </summary>
+                            <div class="filter-content">
+                                <ul class="checklist" role="group" aria-labelledby="destinos-label">
+                                    <span id="destinos-label" class="visually-hidden">Filtrar por destino</span>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="destination" value="africa">
+                                            <span class="box"></span><span class="label">África</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="destination" value="asia">
+                                            <span class="box"></span><span class="label">Asia</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="destination" value="europa">
+                                            <span class="box"></span><span class="label">Europa</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="destination" value="namerica">
+                                            <span class="box"></span><span class="label">N. América</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- Aventura -->
+                        <details class="filter-group filter-adv" open>
+                            <summary class="filter-summary">
+                                <i class="icon" aria-hidden="true"></i>
+                                <span>Aventura</span>
+                            </summary>
+                            <div class="filter-content">
+                                <ul class="checklist">
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="quads">
+                                            <span class="box"></span><span class="label">Quads</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="parapente">
+                                            <span class="box"></span><span class="label">Parapente</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="rafting">
+                                            <span class="box"></span><span class="label">Rafting</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="explora">
+                                            <span class="box"></span><span class="label">Explora</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="buceo">
+                                            <span class="box"></span><span class="label">Buceo</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="paracaidas">
+                                            <span class="box"></span><span class="label">Paracaídas</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="snowboard">
+                                            <span class="box"></span><span class="label">Snowboard</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="category" value="surf">
+                                            <span class="box"></span><span class="label">Surf</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                <a href="#" class="see-more">Ver 21 más</a>
+                            </div>
+                        </details>
+
+                        <!-- Alojamiento -->
+                        <details class="filter-group filter-acc">
+                            <summary class="filter-summary">
+                                <i class="icon" aria-hidden="true"></i>
+                                <span>Alojamiento</span>
+                            </summary>
+                            <div class="filter-content">
+                                <ul class="checklist">
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="stay" value="hotel">
+                                            <span class="box"></span><span class="label">Hotel</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="stay" value="hostal">
+                                            <span class="box"></span><span class="label">Hostel</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+
+                                    <li class="check">
+                                        <label>
+                                            <input type="checkbox" name="stay" value="apartamento">
+                                            <span class="box"></span><span class="label">Apartamento</span>
+                                        </label>
+
+                                        <span class="icon-info">
+                                            <div class="info-check">
+                                                <p>Loren ipsum</p>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- Precio -->
+                        <details class="filter-group filter-pri" open>
+                            <summary class="filter-summary">
+                                <i class="icon" aria-hidden="true"></i>
+                                <span>Precio</span>
+                            </summary>
+
+                            <div class="filter-content price-fields">
+                                <label class="pill-input">
+                                    <span class="pill-icon" aria-hidden="true"></span>
+                                    <input type="number" inputmode="numeric" name="price-min" placeholder="Mínimo" min="0" step="1">
+                                </label>
+
+                                <label class="pill-input">
+                                    <span class="pill-icon" aria-hidden="true"></span>
+                                    <input type="number" inputmode="numeric" name="price-max" placeholder="Máximo" min="0" step="1">
+                                </label>
+                            </div>
+                        </details>
+
+                        <!-- Fechas -->
+                        <details class="filter-group filter-dat" open>
+                            <summary class="filter-summary">
+                                <i class="icon" aria-hidden="true"></i>
+                                <span>Fechas</span>
+                            </summary>
+
+                            <div class="filter-content dates">
+                                <label class="date-field"><span>Desde</span><input type="date" name="date-start"></label>
+
+                                <label class="date-field"><span>Hasta</span><input type="date" name="date-end"></label>
+                            </div>
+                        </details>
+                    </form>
+                </div>
+
+                <button class="filters-toggle" type="button" aria-controls="filters-drawer" aria-expanded="false" data-closed-text="Ver filtros" data-open-text="Cerrar filtros">
+                    <span class="icon" aria-hidden="true"></span>
+                    <span class="label">Ver filtros</span>
+                </button>
+
+                <div class="all-info">
+                    <div class="destinations-options" data-group="africa">
+
+                        <h4>África</h4>
+
+                        <ul class="cards-grid" role="list">
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-001" data-destination="marruecos" data-region="africa" data-continent="africa" data-category="quads" data-stay="hotel" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-1.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span>
+                                    </div>
+                                    
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow">
+                                                <span class="country" data-country>Marruecos</span>, <span class="region" data-region>África</span> <span class="days"><span data-days>1</span> día</span>
+                                            </p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-002" data-destination="marruecos" data-region="africa" data-continent="africa" data-category="parapente" data-stay="hostal" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-2.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Parapente</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Marruecos</span>, <span class="region" data-region>África</span> <span class="days"><span data-days>1</span> día</span></p>
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-003" data-destination="marruecos" data-region="africa" data-continent="africa" data-category="explora" data-stay="apartamento" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-3.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Explora</span></div>
+                                
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Marruecos</span>, <span class="region" data-region>África</span> <span class="days"><span data-days>1</span> día</span></p>
+                                            
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="destinations-options" data-group="namerica">
+                        
+                        <h4>América del Norte</h4>
+
+                        <ul class="cards-grid" role="list">
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-101" data-destination="usa" data-region="namerica" data-continent="namerica" data-category="quads" data-stay="hotel" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-1.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>EE. UU.</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-102" data-destination="usa" data-region="namerica" data-continent="namerica" data-category="quads" data-stay="hostal" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-2.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>EE. UU.</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-103" data-destination="mexico" data-region="namerica" data-continent="namerica" data-category="buceo" data-stay="apartamento" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-3.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Buceo</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>México</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-104" data-destination="canada" data-region="namerica" data-continent="namerica" data-category="snowboard" data-stay="hotel" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-1.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Snowboard</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Canadá</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-105" data-destination="usa" data-region="namerica" data-continent="namerica" data-category="quads" data-stay="hostal" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-2.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>EE. UU.</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-106" data-destination="usa" data-region="namerica" data-continent="namerica" data-category="quads" data-stay="apartamento" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-3.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>EE. UU.</span>, <span class="region" data-region>N. América</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="destinations-options" data-group="asia">
+                        <h4>Asia</h4>
+                        <ul class="cards-grid" role="list">
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-201" data-destination="tailandia" data-region="asia" data-continent="asia" data-category="explora" data-stay="hotel" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-1.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Explora</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Tailandia</span>, <span class="region" data-region>Asia</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-202" data-destination="tailandia" data-region="asia" data-continent="asia" data-category="quads" data-stay="hostal" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-2.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Tailandia</span>, <span class="region" data-region>Asia</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-203" data-destination="japon" data-region="asia" data-continent="asia" data-category="quads" data-stay="apartamento" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-3.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Japón</span>, <span class="region" data-region>Asia</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+                                        
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="destinations-options" data-group="europa">
+
+                        <h4>Europa</h4>
+
+                        <ul class="cards-grid" role="list">
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-301" data-destination="españa" data-region="europa" data-continent="europa" data-category="rafting" data-stay="hotel" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-1.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Rafting</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>España</span>, <span class="region" data-region>Europa</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-302" data-destination="francia" data-region="europa" data-continent="europa" data-category="rafting" data-stay="hostal" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-2.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Rafting</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Francia</span>, <span class="region" data-region>Europa</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+
+                            <li class="card-item" role="listitem">
+                                <article class="card" data-id="oferta-303" data-destination="portugal" data-region="europa" data-continent="europa" data-category="quads" data-stay="apartamento" data-days-default="1" data-price-per-day="20496" data-fixed-fee="0" data-currency="EUR" data-iva="21">
+                                    <div class="card-media"><figure class="card-figure"><img src="img/card-3.jpg" alt="Imagen destino" loading="lazy" decoding="async"></figure><span class="badge">Quads</span></div>
+
+                                    <div class="card-body">
+                                        <div class="info-card">
+                                            <p class="eyebrow"><span class="country" data-country>Portugal</span>, <span class="region" data-region>Europa</span> <span class="days"><span data-days>1</span> día</span></p>
+
+                                            <h5 class="card-title">Descubre Bangkok con Iberojet</h5>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="price" aria-live="polite">
+                                                <span class="from">Desde</span> <span class="amount" data-price-display>248,00&nbsp;€</span> 
+                                                <a class="breakdown" href="#">Ver desglose</a>
+                                            </div>
+
+                                            <a class="btn-reservar" href="#" role="button">Reservar</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="price-popover" class="price-popover" aria-hidden="true">
+                <div class="price-popover__panel" role="dialog" aria-labelledby="price-popover-title">
+                    <div class="price-popover__header">
+                        <h5 id="price-popover-title">Desglose de precios</h5>
+
+                        <button type="button" class="price-popover__close" aria-label="Cerrar">×</button>
+                    </div>
+
+                    <div class="prices-cont">
+                        <div class="price-popover__destination">
+                            <span class="dest" data-popover-destination></span>,
+                            <span class="reg" data-popover-region></span>
+                            <span class="days" data-popover-days></span>
+                        </div>
+
+                        <div class="price-popover__body">
+                            <div class="row">
+                                <span>Precio antes de impuestos</span>
+                                <span class="amount" data-popover-base></span>
+                            </div>
+
+                            <div class="row">
+                                <span>IVA</span>
+                                <span class="amount" data-popover-iva></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-popover__footer">
+                        <span>Precio final</span>
+                        <strong class="amount" data-popover-total></strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-top">
+            <a href="/" class="brand">
+                <img src="img/logo.png" alt="logo Waveless">
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>©2024 Waveless · Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

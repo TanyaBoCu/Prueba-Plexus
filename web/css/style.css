@@ -1,0 +1,1262 @@
+:root {
+  --bg: #ffffff;
+  --txt: #342E34;
+  --brand: #622F60;
+  --accent: #FF8F50;
+  --title: #2F222F;
+  --btn: #4E250E;
+  --radius: 24px;
+  --radius-btn: 208px;
+  --shadow: 0 6px 22px rgba(0,0,0,.12);
+  --font-title: 'Syne', sans-serif;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--txt); 
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:focus-visible { 
+    outline:2px solid var(--brand); 
+    outline-offset:2px; 
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute; 
+    left: -9999px; 
+    top: auto;
+    background-color: #111; 
+    color: #fff; 
+    padding: 10px; 
+    border-radius: 8px;
+}
+.skip-link:focus { 
+    left: 16px; 
+    top: 16px; 
+    z-index: 10000; 
+}
+
+/* Header fijo */
+.site-header {
+    position: fixed; 
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0 0 auto 0; 
+    z-index: 1000;
+    background-color: var(--bg);
+}
+.header-inner {
+    width: 100%;
+    height: 80px;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.scrolled .site-header { 
+    box-shadow: var(--shadow); 
+}
+
+/*-- Logo --*/
+.brand { 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+.brand img {
+    width: 145px;
+}
+
+/*-- Menú --*/
+.primary-nav a:focus-visible { 
+    outline: 2px solid var(--brand); 
+    outline-offset: -12px; 
+}
+
+.primary-nav {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+}
+.primary-nav ul { 
+    display: flex; 
+    justify-content: center; 
+    align-items: stretch;
+    gap: 72px;
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+}
+.primary-nav li {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+.primary-nav a {
+    position: relative; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+.primary-nav a .nav-icon {
+    position: relative; 
+    margin-left: 30px;
+}
+.primary-nav a .nav-icon::after {
+    position: absolute;
+    content: "";
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.primary-nav a .nav-icon.adventure::after {
+    background-image: url("../img/adventure.svg");
+}
+.primary-nav a .nav-icon.destinations::after {
+    background-image: url("../img/world.svg");
+}
+.primary-nav a .nav-icon.accommodation::after {
+    background-image: url("../img/hotel.svg");
+}
+
+.primary-nav a::after {
+    position: absolute;
+    content: ""; 
+    width: 100%; 
+    height: 2px; 
+    left: 0;
+    bottom: 0;
+    background-color: var(--accent);
+    opacity: 0; 
+    -webkit-transition: opacity .35s ease;
+    transition: opacity .35s ease;
+}
+.primary-nav a::before {
+    position: absolute;
+    content: ""; 
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 12px solid var(--accent);
+    left: 50%; 
+    bottom: 0;
+    transform: translateX(-50%);
+    opacity: 0; 
+    -webkit-transition: opacity .35s ease;
+    transition: opacity .35s ease;
+}
+
+.primary-nav a[aria-current="page"]::after,
+.primary-nav a:hover::after,
+.primary-nav a[aria-current="page"]::before,
+.primary-nav a:hover::before { 
+    opacity: 1; 
+}
+
+/*-- Botón Reserva --*/
+.btn-reserva {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px; 
+    background-color: var(--brand); 
+    color:#fff; 
+    border-radius: var(--radius-btn);
+    font-size: 16px;
+    font-weight:600;
+    line-height: 24px;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.btn-reserva:hover { 
+    background-color: var(--title);
+}
+
+/*-- Menú hamburguesa --*/
+.nav-toggle {
+    position: relative;
+    display: none; 
+    justify-content: center;
+    align-items: center; 
+    width: 22px; 
+    height: 22px; 
+    background-color: var(--bg);
+    border: none;
+}
+.nav-toggle .nav-toggle-bar, 
+.nav-toggle::before, 
+.nav-toggle::after {
+    content:""; 
+    position: absolute;
+    display:flex; 
+    width:22px; 
+    height:2px; 
+    left: 0;
+    background-color: var(--brand); 
+    border-radius:4px;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.nav-toggle .nav-toggle-bar {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.nav-toggle::before { 
+    top: 0px; 
+}
+.nav-toggle::after { 
+    bottom: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { 
+    opacity:0; 
+}
+.nav-toggle[aria-expanded="true"]::before { 
+    top: 50%; 
+    transform: rotate(-45deg) translateY(-50%);
+}
+.nav-toggle[aria-expanded="true"]::after { 
+    bottom: 50%;
+    transform: rotate(45deg) translateY(50%);
+}
+
+
+
+/* Main */
+/*-- Hero --*/
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 80px;
+    overflow: hidden;
+    background: var(--brand);
+}
+.hero-carousel .slides {
+    position: absolute;
+    inset: 0;
+}
+.hero-carousel .slides .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(.8);
+    opacity: 0;
+    -webkit-transition: opacity .6s ease;
+    transition: opacity .6s ease;
+}
+.hero-carousel .slides .slide.is-active {
+    opacity:1
+}
+.overlay {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    height: 100%;
+    padding: 0 74px;
+    z-index: 2;
+}
+.overlay .titles-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+.overlay .titles-cont h1 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    color: var(--bg);
+}
+.overlay .titles-cont h2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: var(--bg);
+}
+.overlay .more-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+    background: var(--accent);
+    color: var(--btn);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.overlay .more-info:hover {
+    background-color: #CC7341;
+}
+.hero-carousel .nav {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background-color: #CCBCCC;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.hero-carousel .nav .arrow-icon {
+    position: relative;
+}
+.hero-carousel .nav .arrow-icon::after {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-image: url("../img/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.hero-carousel .nav.prev {
+    left: 2px;
+    transform: translateY(-50%);
+}
+.hero-carousel .nav.next {
+    right: 2px;
+    transform: translateY(-50%) rotate(180deg);
+}
+.hero-carousel .nav:hover {
+    background-color: #622F60;
+}
+
+.hero-carousel .dots {
+    position: absolute;
+    display:flex;
+    gap:8px;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+.hero-carousel .dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFFFFFB8;
+    border: 1px solid var(--bg);
+    cursor:pointer;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.hero-carousel .dots .dot.is-active,
+.hero-carousel .dots .dot:hover {
+    background-color: var(--accent);
+}
+
+/*-- destinations-cards --*/
+.filters-toggle {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    border-radius: var(--radius-btn);
+    background: #FAF7F5;
+    border: 1px solid #622F6029;
+    cursor: pointer;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.filters-toggle .icon::before {
+    position:relative;
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px; 
+    height: 24px;
+    background-image: url("../img/filter.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.filters-toggle span {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #2F222F;
+}
+.filters-close {
+    display:none;
+}
+
+.select-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    padding: 72px 32px;
+}
+.titles-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.titles-sections h2 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--title);
+}
+.titles-sections h3 {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    color: #6B7D8D;
+}
+
+.select-cards .filters-destinations .menu-filters {
+    min-width: 264px;
+    max-width: 264px;
+    flex: 1;
+    padding-top: 40px;
+}
+.select-cards .filters-destinations {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    max-width: 1128px;
+}
+.select-cards .filters-destinations .filters-form {
+    background-color: #FBF6F4;
+    border-radius: 24px;
+}
+.select-cards .filters-destinations .filters-form .filters-title {
+    padding: 32px 24px 24px;
+    border-bottom: 1px solid #E0D9E0;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+}
+.select-cards .filters-destinations .filters-form .visually-hidden {
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    padding: 0; 
+    margin: -1px; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    white-space: nowrap; 
+    border: 0; 
+}
+.select-cards .filters-destinations .filters-form .filter-group {
+    padding: 8px 24px;
+}
+.select-cards .filters-destinations .filters-form .filter-group.filter-dest {
+    padding: 20px 24px 8px;
+}
+.select-cards .filters-destinations .filters-form .filter-group.filter-dat {
+    padding: 8px 24px 20px;
+}
+.select-cards .filters-destinations .filters-form .filter-summary {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    cursor: pointer;
+}
+.filters-form label.pill-input,
+.filters-form .date-field input {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    padding: 8px 12px; 
+    border: 1px solid var(--brand); 
+    border-radius: var(--radius-btn); 
+    background-color: var(--bg);
+}
+.filters-form label.pill-input .pill-icon {
+    width: 18px;
+    height: 18px;
+    background-image: url("../img/price-primary.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.filters-form .pill-input input {
+    width: 100%; 
+    border: none;
+    background-color: transparent;
+    color: var(--brand);
+}
+.select-cards .filters-destinations .filters-form .filter-group .filter-summary::before {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url("../img/arrow-f.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .filter-group .filter-summary .icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .filter-dest .filter-summary .icon {
+    background-image: url("../img/world.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-adv .filter-summary .icon {
+    background-image: url("../img/adventure.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-acc .filter-summary .icon {
+    background-image: url("../img/hotel.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-pri .filter-summary .icon {
+    background-image: url("../img/price.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-dat .filter-summary .icon {
+    background-image: url("../img/calendar.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-dest.filter-group .filter-summary:hover .icon,
+.select-cards .filters-destinations .filters-form .filter-dest.filter-group[open] .filter-summary .icon {
+    background-image: url("../img/world-hover.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-adv.filter-group .filter-summary:hover .icon,
+.select-cards .filters-destinations .filters-form .filter-adv.filter-group[open] .filter-summary .icon {
+    background-image: url("../img/adventure-hover.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-acc.filter-group .filter-summary:hover .icon,
+.select-cards .filters-destinations .filters-form .filter-acc.filter-group[open] .filter-summary .icon {
+    background-image: url("../img/hotel-hover.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-pri.filter-group .filter-summary:hover .icon,
+.select-cards .filters-destinations .filters-form .filter-pri.filter-group[open] .filter-summary .icon {
+    background-image: url("../img/price-hover.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-dat.filter-group .filter-summary:hover .icon,
+.select-cards .filters-destinations .filters-form .filter-dat.filter-group[open] .filter-summary .icon {
+    background-image: url("../img/calendar-hover.svg");
+}
+.select-cards .filters-destinations .filters-form .filter-group .filter-summary:hover::before {
+    background-image: url("../img/arrow-f-hover.svg"); 
+}
+.select-cards .filters-destinations .filters-form .filter-group[open] .filter-summary::before {
+   background-image: url("../img/arrow-f-hover.svg"); 
+   transform: translateY(-50%) rotate(90deg);
+}
+.select-cards .filters-destinations .filters-form .filter-group .filter-summary span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--txt);
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .filter-group .filter-summary:hover span,
+.select-cards .filters-destinations .filters-form .filter-group[open] .filter-summary span {
+    color: #B85C28;
+}
+.select-cards .filters-destinations .filters-form .filter-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.select-cards .filters-destinations .filters-form a.see-more {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--brand);
+    text-align: left;
+    text-decoration: underline;
+    padding: 12px 16px;
+}
+.select-cards .filters-destinations .filters-form .checklist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 16px;
+}
+.select-cards .filters-destinations .filters-form .checklist .check {
+    padding: 12px 0;
+}
+.select-cards .filters-destinations .filters-form .price-fields,
+.select-cards .filters-destinations .filters-form .dates { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+}
+.select-cards .filters-destinations .filters-form .dates .date-field input,
+.filters-form .date-field {
+    width: 100%;
+}
+.filters-form .date-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+.select-cards .filters-destinations .filters-form .check {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.select-cards .filters-destinations .filters-form .check .icon-info {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-image: url("../img/info.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .check .info-check {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg);
+    border-radius: 4px;
+    padding: 6px 10px;
+    box-shadow: 0px 4px 8px 0px #00000033;
+    z-index: 3;
+    visibility: hidden;
+    pointer-events: none;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .check .info-check p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.select-cards .filters-destinations .filters-form .check .info-check::before {
+    position: absolute;
+    content: ""; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--bg);
+    left: 50%; 
+    bottom: -6px;
+    transform: translateX(-50%);
+}
+.select-cards .filters-destinations .filters-form .check .icon-info:hover .info-check {
+    visibility: visible;
+}
+
+
+.select-cards .filters-destinations .filters-form .check label { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    cursor: pointer; 
+}
+.select-cards .filters-destinations .filters-form .check .label,
+.select-cards .filters-destinations .filters-form .check .label span {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--txt);
+}
+.select-cards .filters-destinations .filters-form .check input { 
+    position: absolute; 
+    opacity: 0; 
+    pointer-events:none; 
+}
+.select-cards .filters-destinations .filters-form .check .box {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px; 
+    height: 16px;
+    border: 1px solid var(--brand); 
+    border-radius: 4px; display:inline-block; 
+    background-color: var(--bg);
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .check input + .box {
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .check input:checked + .box {
+  background-color: var(--accent);
+}
+.select-cards .filters-destinations .filters-form .check input:checked + .box::after {
+    content:""; 
+    position: absolute; 
+    inset: 2px;
+    background-image: url("../img/check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.select-cards .filters-destinations .filters-form .date-field input:focus { 
+    outline: 2px solid transparent; 
+    box-shadow:0 0 0 3px rgba(245,140,69,.25); 
+}
+
+.select-cards .filters-destinations .all-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 32px;
+}
+.select-cards .filters-destinations .all-info .destinations-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+.destinations-options ul.cards-grid {
+    display:grid;
+    gap:24px;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    align-items:stretch;
+    list-style: none;
+}
+.destinations-options ul.cards-grid li.card-item {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: stretch;
+    background: var(--bg);
+    color:var(--text);
+    border-radius:var(--radius);
+    box-shadow: 0px 4px 8px 0px #00000033;
+    overflow:hidden;
+}
+.destinations-options ul.cards-grid .card-media .card-figure img {
+    width: 100%;
+    height: 188px;
+    object-fit: cover;
+    object-position: center;
+}
+.destinations-options ul.cards-grid .card-media .badge {
+    position: absolute; 
+    top:16px; 
+    right:16px;
+    background: var(--accent); 
+    padding: 4px 12px; 
+    border-radius:40px;
+    color: var(--txt);
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+}
+.destinations-options h4 {
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+}
+.card-item .card {
+    position: relative;
+}
+.card-item .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-item .card-body .info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px;
+}
+.card-item .card-body .info-card p,
+.card-item .card-body .info-card p span {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--brand);
+}
+.card-item .card-body .info-card p span.days {
+    color: var(--text);
+}
+.card-item .card-body .info-card h5 {
+    font-weight: 700;
+    color: var(--text);
+}
+.card-item .card-body .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding: 16px;
+    background-color: #FBF6F4;
+}
+.card-item .card-body .card-footer .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    color: var(--txt);
+    text-align: left;
+}
+.card-item .card-body .card-footer .price .from {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+.card-item .card-body .card-footer .price .amount {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 24px;
+}
+.card-item .card-body .card-footer .price .breakdown {
+    position: relative;
+    width: max-content;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: underline;
+    color: var(--brand);
+    margin-right: 17px;
+}
+.card-item .card-body .card-footer .price .breakdown::after {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url("../img/arrow-a.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.card-item .card-body .card-footer .btn-reservar {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    padding: 8px 24px;
+    border: 2px solid var(--brand); 
+    border-radius: var(--radius-btn);
+    background: #fff; 
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--brand); 
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.card-item .card-body .card-footer .btn-reservar:hover { 
+    background: var(--brand); 
+    color: #fff; 
+}
+
+/* Información desglose de precios */
+.price-popover {
+    display: none;  
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+.price-popover.is-open {
+    display: block;
+}
+.price-popover .price-popover__panel {
+    position: absolute;
+    top: var(--popover-top, 0);
+    left: var(--popover-left, 0);
+    min-width: 400px;
+    max-width: min(90vw, 480px);
+    background-color: var(--bg);
+    border: 1px solid #E0D9E0;
+    border-radius: 24px;
+    box-shadow: 0px 4px 8px 0px #00000033;
+    overflow: hidden;
+    font: inherit;
+}
+.price-popover__close {
+    background-color: transparent; 
+    border: 0;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+}
+.price-popover .price-popover__header,
+.price-popover .price-popover__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #FBF6F4;
+}
+.price-popover .price-popover__header h5,
+.price-popover .price-popover__footer span {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+.price-popover .price-popover__header {
+    border-bottom: 1px solid #E0D9E0;
+}
+.price-popover .price-popover__footer {
+    border-top: 1px solid #E0D9E0;
+}
+.price-popover .price-popover__footer span.amount {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: right;
+}
+.price-popover .prices-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    background-color: var(--bg);
+}
+.price-popover .prices-cont .price-popover__destination {
+   display: flex; 
+   justify-content: flex-start;
+   flex-wrap: wrap;
+   gap: 4px;
+}
+.price-popover .prices-cont .price-popover__destination,
+.price-popover .prices-cont .price-popover__destination span {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--brand);
+}
+.price-popover .prices-cont .price-popover__destination span.days {
+    font-weight: 500;
+    margin-left: 6px;
+}
+.price-popover .prices-cont .price-popover__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+.price-popover .prices-cont .price-popover__body .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+.price-popover .prices-cont .price-popover__body span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
+}
+.price-popover .prices-cont .price-popover__body span.amount {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: right;
+}
+
+/* Footer */
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 180px;
+    background-color: #FBF6F4;
+    border-top: 1px solid #FAF7F5;
+}
+
+.site-footer .footer-top {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex: 1;
+    padding: 24px 24px;
+}
+/*-- Logo --*/
+.site-footer .brand { 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    -webkit-transition: opacity .35s ease;
+    transition: opacity .35s ease;
+}
+.site-footer .brand img {
+    width: 145px;
+}
+.site-footer .brand:hover { 
+    opacity: .8; 
+}
+
+.site-footer .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    background-color: #E0D9E0;
+}
+.site-footer .footer-bottom p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--brand);
+}
+
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+    /* Menú filtros y cards */
+    .filters-toggle { 
+        display: flex; 
+    }
+
+    .select-cards .filters-destinations {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
+    .select-cards .filters-destinations .menu-filters {
+        position: absolute;
+        min-width: 300px;
+        max-width: 300px;
+        top: 0px;
+        left: -36px;
+        bottom: -72px;               
+        padding-top: 0;
+        transform: translateX(-100%); 
+        border-radius: 0;
+        z-index: 9;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transition: transform .35s ease;
+        transition: transform .35s ease;
+    }
+    #filters-drawer .filters-close {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 32px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        background-color: transparent; 
+        border: 0;
+        font-weight: 700;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1;
+    }
+    #filters-drawer form {
+        height: 100%;
+        padding: 0;
+        border-radius: 0;
+    }
+    .select-cards .filters-destinations .filters-form .filters-title {
+        text-align: left;
+    }
+    /* Abierto */
+    #filters-drawer[data-open="true"] {
+        background-color: #FBF6F4;
+        pointer-events: auto; 
+        transform: translateX(0);
+    }
+
+    .select-cards {
+        padding: 72px 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Header */
+    .header-inner {
+        padding: 0 24px;
+        gap: 24px;
+    }
+    .primary-nav ul { 
+        gap: 16px;
+    }
+
+    /* Menú filtros y cards */
+    .select-cards .filters-destinations .menu-filters {
+        left: -24px;
+    }
+}
+
+@media (max-width: 964px) {
+    /* Header */
+    .btn-reserva {
+        display: none;
+    }
+
+    .nav-toggle { 
+        display:flex; 
+    }
+    .primary-nav {
+        position: absolute; 
+        width: 100vw;
+        height: 50vh;
+        top: 80px; 
+        left: 0; 
+        bottom: 0;
+        background-color: #FAF7F5;
+        transform: translateY(-100%); 
+        opacity: 0; 
+        pointer-events: none;
+        -webkit-transition: all .35s ease;
+        transition: all .35s ease;
+    }
+    .primary-nav ul { 
+        flex-direction: column; 
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+        padding: 24px;
+    }
+    .primary-nav ul li a {
+        padding: 8px 12px;
+    }  
+
+    .primary-nav[data-open="true"] { 
+        opacity: 1; 
+        transform: translateY(0); 
+        box-shadow: 0 12px 30px -12px rgba(0,0,0,.12); 
+        pointer-events: visible; 
+    }
+
+    /* Menú filtros y cards */
+    .destinations-options ul.cards-grid {
+        grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    /* Header */
+    .site-header {
+        min-height: 56px;
+    }
+    .header-inner {
+        height: 56px;
+    }
+    .brand img {
+        width: 108px;
+    }
+    .primary-nav {
+        top: 56px; 
+    }
+
+    /* Main */
+    /*-- Hero --*/
+    .hero-carousel {
+        margin-top: 56px;
+    }
+
+    /* Menú filtros y cards */
+    .destinations-options ul.cards-grid {
+        grid-template-columns:repeat(1, minmax(0,1fr));
+    }
+}
+
+
