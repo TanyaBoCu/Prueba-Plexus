@@ -1257,6 +1257,7 @@ a:focus-visible {
     .destinations-options ul.cards-grid {
         grid-template-columns:repeat(1, minmax(0,1fr));
     }
+    .price-popover .price-popover__panel {
+        min-width: calc(100% - 48px);
+    }
 }
-
-
